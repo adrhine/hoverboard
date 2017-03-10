@@ -3,7 +3,7 @@
 #include <RF24_config.h>
 
 #include <SPI.h>
-#include ".\controller.cpp"
+#include "controller.cpp"
 
 RF24 radio(9,10);
 const uint64_t pipe = 0xE8E8F0F0E1LL;
