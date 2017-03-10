@@ -23,7 +23,7 @@ void loop(void){
      Serial.println(msg[0]);
      if (msg[0] == 2){
        delay(1000);
-       Serial.println(msg[1]);
+       //Serial.println(msg[1]);
        Serial.println(msg[2]);
        digitalWrite(LED1, HIGH);
      }
