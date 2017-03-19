@@ -3,6 +3,7 @@
 #include "RF24.h"
 #include "controller.cpp"
 
+int value = 0;
 int msg[3];
 RF24 radio(9,10);
 const uint64_t pipe = 0xE8E8F0F0E1LL;
@@ -21,5 +22,5 @@ void loop(void){
   cntlr.potMtr = analogRead(1);
   Serial.println(cntlr.thmbStick);
   Serial.println(cntlr.potMtr);
-  radio.write(&cntlr, sizeof(cntlr)); 
+  radio.write(&cntlr, sizeof(cntlr));
 }
