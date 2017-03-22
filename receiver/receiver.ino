@@ -1,8 +1,7 @@
-#include <nRF24L01.h>
+//#include <nRF24L01.h>
+//#include <RF24_config.h>
 #include <RF24.h>
-#include <RF24_config.h>
 #include <Servo.h>
-#include <SPI.h>
 #include "controller.cpp"
 
 RF24 radio(9,10);
@@ -26,13 +25,10 @@ void setup(void){
 void loop(void){
  if (radio.available()){
      radio.read(&cntrl, sizeof(cntrl));
-     int var = cntrl.potMtr/4;
-     //Serial.println(var);
-     fuelESC.write(var);
-     //Serial.println(cntrl.thmbStick);
-     int var2 = ((cntrl.thmbStick*.059) + 50);
-     //Serial.println(var2);
-     directionalServo.write(var2);
+     int fuelingSpeed = cntrl.potMtr/4;
+     fuelESC.write(fuelingSpeed);
+     int rudderPos = ((cntrl.thmbStick*.059) + 50);
+     directionalServo.write(rudderPos);
      delay(100);
    }
  else{
